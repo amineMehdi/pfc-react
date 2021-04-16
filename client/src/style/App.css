@@ -1,0 +1,23 @@
+:root{
+  --color-primary: #038299;
+  --color-secondary: #d4ad00;
+}
+.pfc-app{
+  text-align: center;
+}
+
+.tile-wrapper{
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 25px;
+}
+
+.tile-name{
+  text-align: center;
+  margin-bottom: 10vh;
+}
+.tile-image > img:hover{
+  fill: var(--color-primary);
+}
+
+
