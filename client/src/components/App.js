@@ -6,32 +6,82 @@ import paper from "../images/paper.svg";
 import rock from "../images/rock.svg";
 import scissor from "../images/scissor.svg";
 const socket = io("http://localhost:4200");
-// socket.emit("greatings", { name: "Mehdi" });
-socket.emit("join");
-socket.on("join_success", () => {
-  console.log("Join success");
-});
-socket.on("wait", ()=> {
-  console.log("waiting");
-});
+// let waitInterval;
+// const socketListen = () => {
+//     socket.emit("join");
+//     socket.on("join_success", () => {
+//       console.log("Join success");
+//     });
+//     socket.on("wait", ()=> {
+//       console.log("waiting");
+//     });
+//     socket.on("lose", () => {
+//       console.log("lost");
+//     });
+//     socket.on("win", () => {
+//       console.log("won");
+//     });
+//     socket.on("draw", () => {
+//       console.log("draw");
+//     });
+// }
+
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.status = "Waiting for a play room ...";
+    this.state = {
+      choice: "",
+      roomStatus: "",
+    };
+    socket.emit("join");
+  }
+  socketListen() {
+    socket.on("join_success", () => {
+      this.setState({
+        roomStatus: "Ready to play.",
+      });
+      // if (waitInterval) document.clearInterval(waitInterval);
+      console.log("Join success");
+    });
+    socket.on("wait_player", () => {
+      this.setState({
+        roomStatus: "Waiting for another Player ",
+      });
+    });
+    socket.on("wait", () => {
+      this.setState({
+        roomStatus: "Waiting for a play room ...",
+      });
+      // socket.emit("join");
+      console.log("waiting");
+    });
+    socket.on("lose", () => {
+      console.log("lost");
+    });
+    socket.on("win", () => {
+      console.log("won");
+    });
+    socket.on("draw", () => {
+      console.log("draw");
+    });
   }
   handleClick(ch) {
-    console.log(ch);
-    socket.emit("choice", {choice: ch});
+    this.setState({
+      choice: ch,
+    });
+    socket.emit("choice", { choice: ch });
   }
+
   render() {
+    this.socketListen();
     return (
       <div className="pfc-app">
         <div className="status">
-          <h1>{this.status}</h1>
+          <h1>{this.state.roomStatus}</h1>
         </div>
         <div className="choice">
-          <h3>Your Choice:</h3>
-          {/* choice */}
+          <h3>Your Choice: {this.state.choice}</h3>
+
           <h3>Opponent's Choice:</h3>
           {/* opponent's choice */}
         </div>
