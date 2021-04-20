@@ -31,11 +31,22 @@ class App extends React.Component {
     super(props);
     this.state = {
       choice: "",
+      opponentChoice: "",
       roomStatus: "",
+      
     };
     socket.emit("join");
   }
-  socketListen() {
+
+  handleClick(ch) {
+    if(this.state.opponentChoice) this.setState({opponentChoice: ""});
+    this.setState({
+      choice: ch,
+    });
+    socket.emit("choice", { choice: ch });
+  }
+  componentDidMount() {
+    // console.log("M");
     socket.on("join_success", () => {
       this.setState({
         roomStatus: "Ready to play.",
@@ -52,28 +63,32 @@ class App extends React.Component {
       this.setState({
         roomStatus: "Waiting for a play room ...",
       });
-      // socket.emit("join");
       console.log("waiting");
     });
-    socket.on("lose", () => {
+    socket.on("lose", (args) => {
+      console.log(args);
+      this.setState({
+        opponentChoice: args.opponentChoice
+      });
       console.log("lost");
     });
-    socket.on("win", () => {
+    socket.on("win", (args) => {
+      this.setState({
+        opponentChoice: args.opponentChoice
+      });
+      console.log(args);
       console.log("won");
     });
-    socket.on("draw", () => {
+    socket.on("draw", (args) => {
+      this.setState({
+        opponentChoice: args.opponentChoice
+      });
+      console.log(args);
       console.log("draw");
     });
   }
-  handleClick(ch) {
-    this.setState({
-      choice: ch,
-    });
-    socket.emit("choice", { choice: ch });
-  }
-
   render() {
-    this.socketListen();
+    // this.socketListen();
     return (
       <div className="pfc-app">
         <div className="status">
@@ -82,8 +97,8 @@ class App extends React.Component {
         <div className="choice">
           <h3>Your Choice: {this.state.choice}</h3>
 
-          <h3>Opponent's Choice:</h3>
-          {/* opponent's choice */}
+          <h3>Opponent's Choice: {this.state.opponentChoice}</h3>
+          
         </div>
         <div className="tile-wrapper">
           <PfcTile

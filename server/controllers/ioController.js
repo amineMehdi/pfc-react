@@ -18,19 +18,19 @@ class IoController {
     if (len > 1) {
       const choiceVal = Object.values(this.choice);
       if (choiceVal.length === 2 && choiceVal.every((val) => val === choice)) {
-        this.players.forEach((soc) => soc.emit("draw"));
+        this.players.forEach((soc) =>
+          soc.emit("draw", { opponentChoice: choiceVal[0] })
+        );
         this.choice = {};
         return;
       }
       const winner = pfcGame(...Object.values(this.choice));
       const curPlayer = this.choice[socketId] === winner ? "win" : "lose";
-      const opponent = this.choice[socketId] === winner ? "lose" : "win";
-
+      const opponent = curPlayer === "win" ? "lose" : "win";
+      const opponentId = Object.keys(this.choice).filter(k => k != socketId);
       this.players.forEach((soc) => {
         soc.emit(soc.id === socketId ? curPlayer : opponent, {
-          opponentChoice: Object.values(this.choice).filter(
-            (ch) => ch != winner
-          ),
+          opponentChoice: (soc.id != socketId) ? this.choice[socketId] : this.choice[opponentId],
         });
       });
       this.choice = {};
