@@ -10,7 +10,6 @@ class IoController {
     socket.on("join", () => this.addPlayer(socket));
     socket.on("choice", (args) => this.registerChoice(socket, args.choice));
     socket.on("disconnect", () => this.leave(socket));
-    socket.on("get_players", () => this.getPlayers());
   }
   registerChoice(socket, choice) {
     const socketId = socket.id;
@@ -41,10 +40,10 @@ class IoController {
     }
   }
   addPlayer(socket) {
-    console.log(`socket : ${socket.id}`);
+    // console.log(`socket : ${socket.id}`);
     const idPlayers = this.players.map((soc) => soc.id);
-    console.log(idPlayers);
-    console.log(idPlayers.includes(socket.id));
+    // console.log(idPlayers);
+    // console.log(idPlayers.includes(socket.id));
     if (this.players.length < 1) {
       this.players.push(socket);
       socket.emit("wait_player");
@@ -58,9 +57,6 @@ class IoController {
       if (idPlayers.includes(socket.id)) socket.emit("room_ready");
       else socket.emit("wait");
     }
-  }
-  getPlayers() {
-    console.log(this.players.map((p) => p.id));
   }
   leave(socket) {
     const socketId = socket.id;

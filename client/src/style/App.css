@@ -8,8 +8,12 @@
 
 .tile-wrapper{
   display: inline-grid;
-  grid-template-columns: auto auto auto;
-  column-gap: 25px;
+  /* grid-template-columns: repeat(auto-fill,1fr);; */
+  grid-template-columns: 30% 30% 30%;
+  /* grid-auto-flow: row; */
+  /* column-gap: 25px; */
+  /* row-gap: 2vh; */
+  /* gap: 0vw; */
 }
 
 .tile-name{
@@ -29,4 +33,7 @@
 .choice > h3{
   width: 232px;
   text-align: left;
+}
+#scissor-svg{
+  stroke: #ca0202;
 }

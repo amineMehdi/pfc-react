@@ -26,7 +26,6 @@ class App extends React.Component {
       choice: this.state.roomReady ? ch : "",
     });
     socket.emit("choice", { choice: ch });
-    socket.emit("get_players");
   }
   componentDidMount() {
     socket.on("room_ready", () => {
@@ -35,7 +34,7 @@ class App extends React.Component {
         roomStatus: "Ready to play.",
         roomReady: true
       });
-      console.log("Join success");
+      // console.log("Join success");
     });
     socket.on("wait_player", () => {
       this.setState({
@@ -57,7 +56,6 @@ class App extends React.Component {
         socket.emit("join");
       }, 1000);
 
-      console.log("waiting");
     });
     socket.on("lose", (args) => {
       this.setState({
@@ -78,9 +76,7 @@ class App extends React.Component {
       });
     });
   }
-  // componentWillUnmount(){
-  //   clearInterval(timer);
-  // }
+
   firstLetterCap(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
@@ -97,6 +93,9 @@ class App extends React.Component {
             Opponent's Choice: {this.firstLetterCap(this.state.opponentChoice)}
           </h3>
         </div>
+        {/* <div id="l">
+          <svg src={scissor}></svg>
+        </div> */}
         <div className="tile-wrapper">
           <PfcTile
             src={rock}
