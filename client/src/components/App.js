@@ -14,15 +14,16 @@ class App extends React.Component {
       choice: "",
       opponentChoice: "",
       roomStatus: "",
+      roomReady: false
     };
     socket.emit("join");
   }
 
   handleClick(ch) {
     if (this.state.opponentChoice) this.setState({ opponentChoice: "" });
-    if (this.state.roomStatus) this.setState({ roomStatus: "" });
+    if (this.state.roomReady && this.state.roomStatus) this.setState({ roomStatus: "" });
     this.setState({
-      choice: ch,
+      choice: this.state.roomReady ? ch : "",
     });
     socket.emit("choice", { choice: ch });
     socket.emit("get_players");
@@ -32,12 +33,14 @@ class App extends React.Component {
       if (timer) clearInterval(timer);
       this.setState({
         roomStatus: "Ready to play.",
+        roomReady: true
       });
       console.log("Join success");
     });
     socket.on("wait_player", () => {
       this.setState({
         roomStatus: "Waiting for another Player ",
+        roomReady: false
       });
       if (timer) clearInterval(timer);
       timer = setInterval(function () {
@@ -47,6 +50,7 @@ class App extends React.Component {
     socket.on("wait", () => {
       this.setState({
         roomStatus: "Waiting for a play room ...",
+        roomReady: false
       });
       if (timer) clearInterval(timer);
       timer = setInterval(function () {

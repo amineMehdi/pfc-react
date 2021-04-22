@@ -65,9 +65,12 @@ class IoController {
   leave(socket) {
     const socketId = socket.id;
     this.choice = {};
-    this.players.forEach(p => {
-      if(socketId != p.id) p.emit("wait_player");
-    });
+    const idPlayers = this.players.map(p => p.id);
+    if(idPlayers.includes(socketId)){
+      this.players.forEach(p => {
+        if(socketId != p.id) p.emit("wait_player");
+      });
+    }
     this.players = this.players.filter(
       (socketPlayer) => socketPlayer.id != socketId
     );
