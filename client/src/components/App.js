@@ -6,26 +6,7 @@ import paper from "../images/paper.svg";
 import rock from "../images/rock.svg";
 import scissor from "../images/scissor.svg";
 const socket = io("http://localhost:4200");
-// let waitInterval;
-// const socketListen = () => {
-//     socket.emit("join");
-//     socket.on("join_success", () => {
-//       console.log("Join success");
-//     });
-//     socket.on("wait", ()=> {
-//       console.log("waiting");
-//     });
-//     socket.on("lose", () => {
-//       console.log("lost");
-//     });
-//     socket.on("win", () => {
-//       console.log("won");
-//     });
-//     socket.on("draw", () => {
-//       console.log("draw");
-//     });
-// }
-
+let timer;
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -33,72 +14,84 @@ class App extends React.Component {
       choice: "",
       opponentChoice: "",
       roomStatus: "",
-      
     };
     socket.emit("join");
   }
 
   handleClick(ch) {
-    if(this.state.opponentChoice) this.setState({opponentChoice: ""});
+    if (this.state.opponentChoice) this.setState({ opponentChoice: "" });
+    if (this.state.roomStatus) this.setState({ roomStatus: "" });
     this.setState({
       choice: ch,
     });
     socket.emit("choice", { choice: ch });
+    socket.emit("get_players");
   }
   componentDidMount() {
-    // console.log("M");
-    socket.on("join_success", () => {
+    socket.on("room_ready", () => {
+      if (timer) clearInterval(timer);
       this.setState({
         roomStatus: "Ready to play.",
       });
-      // if (waitInterval) document.clearInterval(waitInterval);
       console.log("Join success");
     });
     socket.on("wait_player", () => {
       this.setState({
         roomStatus: "Waiting for another Player ",
       });
+      if (timer) clearInterval(timer);
+      timer = setInterval(function () {
+        socket.emit("join");
+      }, 1000);
     });
     socket.on("wait", () => {
       this.setState({
         roomStatus: "Waiting for a play room ...",
       });
+      if (timer) clearInterval(timer);
+      timer = setInterval(function () {
+        socket.emit("join");
+      }, 1000);
+
       console.log("waiting");
     });
     socket.on("lose", (args) => {
-      console.log(args);
       this.setState({
-        opponentChoice: args.opponentChoice
+        opponentChoice: args.opponentChoice,
+        roomStatus: "You Lost \u{1F625}",
       });
-      console.log("lost");
     });
     socket.on("win", (args) => {
       this.setState({
-        opponentChoice: args.opponentChoice
+        opponentChoice: args.opponentChoice,
+        roomStatus: "You Won \u{1F642}",
       });
-      console.log(args);
-      console.log("won");
     });
     socket.on("draw", (args) => {
       this.setState({
-        opponentChoice: args.opponentChoice
+        opponentChoice: args.opponentChoice,
+        roomStatus: "Draw \u{1F610}",
       });
-      console.log(args);
-      console.log("draw");
     });
   }
+  // componentWillUnmount(){
+  //   clearInterval(timer);
+  // }
+  firstLetterCap(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   render() {
-    // this.socketListen();
     return (
       <div className="pfc-app">
         <div className="status">
           <h1>{this.state.roomStatus}</h1>
         </div>
         <div className="choice">
-          <h3>Your Choice: {this.state.choice}</h3>
+          <h3>Your Choice: {this.firstLetterCap(this.state.choice)}</h3>
 
-          <h3>Opponent's Choice: {this.state.opponentChoice}</h3>
-          
+          <h3>
+            Opponent's Choice: {this.firstLetterCap(this.state.opponentChoice)}
+          </h3>
         </div>
         <div className="tile-wrapper">
           <PfcTile

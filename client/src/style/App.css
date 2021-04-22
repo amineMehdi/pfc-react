@@ -1,6 +1,6 @@
 :root{
-  --color-primary: #038299;
-  --color-secondary: #d4ad00;
+  --color-primary: #00af17;
+  --color-secondary: #ca0202;
 }
 .pfc-app{
   text-align: center;
@@ -16,6 +16,17 @@
   text-align: center;
   margin-bottom: 10vh;
 }
+.status{
+  min-height: 40px;
+  color: var(--color-primary);
+}
 
-
-
+.choice{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5vh;
+}
+.choice > h3{
+  width: 232px;
+  text-align: left;
+}
