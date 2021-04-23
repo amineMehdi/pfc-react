@@ -19,8 +19,7 @@
   margin-bottom: 10vh;
 }
 .status{
-  min-height: 40px;
-  /* color: var(--color-primary); */
+  min-height: 50px;
 }
 
 .choice{
