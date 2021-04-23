@@ -1,19 +1,17 @@
 :root{
-  --color-primary: #00af17;
-  --color-secondary: #ca0202;
+  --color-success: #00af17;
+  --color-wait: #ff9100;
+  --color-lose: #ca0202;
 }
 .pfc-app{
   text-align: center;
 }
 
 .tile-wrapper{
-  display: inline-grid;
-  /* grid-template-columns: repeat(auto-fill,1fr);; */
-  grid-template-columns: 30% 30% 30%;
-  /* grid-auto-flow: row; */
-  /* column-gap: 25px; */
-  /* row-gap: 2vh; */
-  /* gap: 0vw; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 2vw;
 }
 
 .tile-name{
@@ -22,18 +20,19 @@
 }
 .status{
   min-height: 40px;
-  color: var(--color-primary);
+  /* color: var(--color-primary); */
 }
 
 .choice{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 5vh;
+  flex-wrap: wrap;
 }
 .choice > h3{
   width: 232px;
   text-align: left;
 }
-#scissor-svg{
-  stroke: #ca0202;
+.selected{
+  stroke: #ffd000;
 }

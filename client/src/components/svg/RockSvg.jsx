@@ -1,0 +1,263 @@
+import React from "react";
+
+function RockSvg(props) {
+  return (
+    <div>
+      {/* width is {props.width} height {props.height} stroke {props.stroke} */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="rock-svg"
+        fill="none"
+        stroke={props.stroke}
+        width={props.width}
+        height={props.height}
+        viewBox="0 0 546.046 730.802"
+      >
+        <g transform="translate(-93.973 237.698)">
+          <g id="Base">
+            <line
+              id="Line_1"
+              data-name="Line 1"
+              x2="252"
+              transform="translate(241.5 484.5)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <path
+              id="Path_2"
+              data-name="Path 2"
+              d="M116.806,484.4s14.48-.177,26.79-7.567c36.739-22.054,111.321-83.8,110.869-193.282-.023-5.609.456-12.3,0-18.316"
+              transform="translate(376.694 0.1)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <path
+              id="Path_7"
+              data-name="Path 7"
+              d="M254.663,484.4s-14.48-.177-26.79-7.567C191.133,454.779,116.551,393.029,117,283.551c.023-5.609-.456-12.3,0-18.316"
+              transform="translate(-14.163 0.1)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+          </g>
+          <g id="Finger3">
+            <g
+              id="Group_3"
+              data-name="Group 3"
+              transform="translate(314.362 563.636)"
+            >
+              <path
+                id="Path_4"
+                data-name="Path 4"
+                d="M94-500.5s.167-63.345,66-66"
+                transform="translate(-41 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+              <path
+                id="Path_5"
+                data-name="Path 5"
+                d="M160-500.5s-.167-63.345-66-66"
+                transform="translate(24.999 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+            </g>
+            <g
+              id="Group_7"
+              data-name="Group 7"
+              transform="translate(552.5 -309.164) rotate(180)"
+            >
+              <path
+                id="Path_4-2"
+                data-name="Path 4"
+                d="M94-500.5s.167-63.345,66-66"
+                transform="translate(-41 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+              <path
+                id="Path_5-2"
+                data-name="Path 5"
+                d="M122.457-560.382c-7.535-3.356-17-5.655-28.457-6.117"
+                transform="translate(24.999 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+            </g>
+          </g>
+          <g id="Finger1">
+            <g id="Arc" transform="translate(49.643 339.636)">
+              <path
+                id="Path_4-3"
+                data-name="Path 4"
+                d="M94-500.5s.167-63.345,66-66"
+                transform="translate(-41 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+              <path
+                id="Path_5-3"
+                data-name="Path 5"
+                d="M160-500.5s-.167-63.345-66-66"
+                transform="translate(24.999 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+            </g>
+            <line
+              id="Line_9"
+              data-name="Line 9"
+              y1="430"
+              transform="translate(102.838 -162.864)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <line
+              id="Line_4"
+              data-name="Line 4"
+              y2="315"
+              transform="translate(234.5 -162.5)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+          </g>
+          <g id="Finger2">
+            <g id="Arc-2" data-name="Arc" transform="translate(181.5 563.636)">
+              <path
+                id="Path_4-4"
+                data-name="Path 4"
+                d="M94-500.5s.167-63.345,66-66"
+                transform="translate(-41 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+              <path
+                id="Path_5-4"
+                data-name="Path 5"
+                d="M160-500.5s-.167-63.345-66-66"
+                transform="translate(24.999 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+            </g>
+            <line
+              id="Line_6"
+              data-name="Line 6"
+              x2="0.003"
+              y2="108.636"
+              transform="translate(366.497 43.864)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+          </g>
+          <g id="Finger4">
+            <line
+              id="Line_2"
+              data-name="Line 2"
+              y1="430"
+              transform="translate(631.162 -162.864)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <g id="Arc-3" data-name="Arc" transform="translate(446.5 347.636)">
+              <path
+                id="Path_4-5"
+                data-name="Path 4"
+                d="M94-500.5s.167-63.345,66-66"
+                transform="translate(-41 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+              <path
+                id="Path_5-5"
+                data-name="Path 5"
+                d="M160-500.5s-.167-63.345-66-66"
+                transform="translate(24.999 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+            </g>
+            <line
+              id="Line_5"
+              data-name="Line 5"
+              x2="0.14"
+              y2="347.364"
+              transform="translate(499.36 -153.864)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+          </g>
+          <g id="Thumb">
+            <g
+              id="Arc-4"
+              data-name="Arc"
+              transform="translate(-158 105.5) rotate(90)"
+            >
+              <path
+                id="Path_4-6"
+                data-name="Path 4"
+                d="M94-500.5s.167-63.345,66-66"
+                transform="translate(-41 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+              <path
+                id="Path_5-6"
+                data-name="Path 5"
+                d="M160-500.5s-.167-63.345-66-66"
+                transform="translate(24.999 -2)"
+                strokeLinecap="round"
+                strokeWidth="17"
+              />
+            </g>
+            <line
+              id="Line_7"
+              data-name="Line 7"
+              x2="176.006"
+              y2="0.472"
+              transform="translate(168.494 158.028)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <path
+              id="Path_6"
+              data-name="Path 6"
+              d="M94-500.5s.167-63.345,66-66"
+              transform="translate(8.496 724.526)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <path
+              id="Path_4-7"
+              data-name="Path 4"
+              d="M94-500.5s.167-63.345,66-66"
+              transform="translate(-233.001 196.497) rotate(90)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <line
+              id="Line_10"
+              data-name="Line 10"
+              y2="48"
+              transform="translate(333.498 356.496)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+            <line
+              id="Line_8"
+              data-name="Line 8"
+              y1="0.003"
+              x2="131"
+              transform="translate(213.5 290.497)"
+              strokeLinecap="round"
+              strokeWidth="17"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+export default RockSvg;

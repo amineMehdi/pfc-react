@@ -1,0 +1,118 @@
+import React from "react";
+
+function PaperSvg(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.width}
+      height={props.height}
+      viewBox="0 0 504.248 392.433"
+      className="paper-svg"
+      fill="none"
+      stroke={props.stroke}
+    >
+      <g transform="translate(-138.554 -90.892)">
+        <path
+          id="Path_4"
+          data-name="Path 4"
+          d="M774.423,274.272s-58,1.431-59.143,62.117"
+          transform="translate(-507.923 -174.673)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <line
+          id="Line_3"
+          data-name="Line 3"
+          x2="308"
+          transform="translate(266.5 99.5)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <line
+          id="Line_4"
+          data-name="Line 4"
+          y1="0.099"
+          x2="246.143"
+          transform="translate(148.357 412.5)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <line
+          id="Line_8"
+          data-name="Line 8"
+          y1="0.117"
+          x2="249"
+          transform="translate(207.5 474.5)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <line
+          id="Line_5"
+          data-name="Line 5"
+          x2="0.143"
+          y2="250.784"
+          transform="translate(207.357 161.716)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <line
+          id="Line_7"
+          data-name="Line 7"
+          y2="250.784"
+          transform="translate(515.5 161.716)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <path
+          id="Path_3"
+          data-name="Path 3"
+          d="M715.28,274.272s58,1.431,59.143,62.117"
+          transform="translate(-140.28 -174.673)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <path
+          id="Path_5"
+          data-name="Path 5"
+          d="M774.423,274.272s-58,1.431-59.143,62.117"
+          transform="translate(-199.923 -174.673)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <path
+          id="Path_6"
+          data-name="Path 6"
+          d="M715.28,336.39s58-1.431,59.143-62.117"
+          transform="translate(-258.923 138.228)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <path
+          id="Path_7"
+          data-name="Path 7"
+          d="M774.423,336.39s-58-1.431-59.143-62.117"
+          transform="translate(-319.066 138.228)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <path
+          id="Path_8"
+          data-name="Path 8"
+          d="M774.423,336.39s-58-1.431-59.143-62.117"
+          transform="translate(-568.066 138.228)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+        <line
+          id="Line_6"
+          data-name="Line 6"
+          x2="118"
+          transform="translate(515.5 162.5)"
+          strokeLinecap="round"
+          strokeWidth="17"
+        />
+      </g>
+    </svg>
+  );
+}
+export default PaperSvg;

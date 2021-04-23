@@ -34,6 +34,10 @@ class IoController {
             soc.id != socketId
               ? this.choice[socketId]
               : this.choice[opponentId],
+          yourChoice:
+            soc.id != socketId
+              ? this.choice[opponentId]
+              : this.choice[socketId]
         });
       });
       this.choice = {};
